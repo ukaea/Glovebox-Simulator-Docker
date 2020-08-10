@@ -1,0 +1,4 @@
+[submodule "Glovebox-Simulator"]
+	path = Glovebox-Simulator
+	url = https://github.com/ukaea/Glovebox-Simulator.git
+	branch = gzweb

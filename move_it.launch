@@ -1,0 +1,55 @@
+<launch>
+
+    <!-- Arguments -->
+    <!-- Start the GUIs -->
+    <arg name="start_gazebo" default="true"/>
+    <arg name="gazebo_gui"   default ="true"/>
+    <arg name="start_rviz" default="true"/>
+    
+    <!-- Initial position in Gazebo -->
+    <arg name="x0" default="0"/>
+    <arg name="y0" default="0"/>
+    <arg name="z0" default="0"/>
+
+    <!-- Arm and gripper type -->
+    <arg name="arm" default="gen3"/>
+    <arg name="dof" default="7" /> 
+    <arg name="vision" default="true"/> 
+    <arg name="gripper" default="" />
+    <arg name="robot_name" default="glovebox_left"/>
+
+    <!-- Use trajectory controllers and MoveIt -->
+    <arg name="use_trajectory_controller" default="true"/>
+
+    <!-- Gazebo parameters -->
+    <arg name="use_sim_time" default="true"/>
+    <arg name="debug" default="false" />
+    <arg name="paused" default="$(arg use_trajectory_controller)"/>
+    
+    <!-- Delay before homing the arm -->
+    <arg name="start_delay_seconds" default="60"/>
+    
+
+    <!-- Adding the Robots -->
+
+    <group ns="$(arg robot_name)">	
+
+        <group if="$(arg use_trajectory_controller)">
+
+            <!-- Start MoveIt! main executable -->
+            <!-- TODO Find cleaner way to do that and that will work with other arms -->
+            <!-- Without gripper -->
+            <include file="$(find kortex_description)/../kortex_move_it_config/$(arg arm)_move_it_config/launch/move_group.launch" if="$(eval not arg('gripper'))"> 
+                <arg name="dof" value="$(arg dof)"/>
+            </include>
+            <!-- With gripper -->
+            <include file="$(find kortex_description)/../kortex_move_it_config/$(arg arm)_$(arg gripper)_move_it_config/launch/move_group.launch" unless="$(eval not arg('gripper'))">
+                <arg name="dof" value="$(arg dof)"/>
+            </include>
+
+
+        </group>
+
+    </group>
+
+</launch>
