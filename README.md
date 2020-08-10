@@ -1,4 +1,6 @@
-# Glovebox Simulator
+# Glovebox Simulator Docker Container
+
+This project contians a containerised and web-interface verison of: https://github.com/ukaea/Glovebox-Simulator
 
 
 ## Getting started
