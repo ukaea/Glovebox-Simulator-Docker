@@ -2,6 +2,8 @@
 
 This project contians a containerised and web-interface verison of: https://github.com/ukaea/Glovebox-Simulator
 
+Pre-built docker image: https://hub.docker.com/repository/docker/ukaea/glovebox-simulator
+
 
 ## Getting started
 
@@ -12,8 +14,7 @@ The fastest way to get started is using Docker. If you haven't done so already h
 Once installed you can simply fire up the pre-built Docker container (it will be downloaded automatically for you):
 
 ```
-docker login git.ccfe.ac.uk:4567 #if you need to login to gitlab docker repo
-docker run -it --name sgs -p 8080:8080 -p 8888:8888 -p 8181:8181 -p 7681:7681 git.ccfe.ac.uk:4567/rain/glovebox/docker-simulator
+docker run -it --name sgs -p 8080:8080 -p 8888:8888 ukaea/glovebox-simulator:latest
 ```
 
 Then connect your local browser to [localhost:8080](http://localhost:8080) to see the simulation and [localhost:8888](http://localhost:8888) to get access to an ipython notebook which you can tinker with. The password for the ipython notebook is `rain`.
