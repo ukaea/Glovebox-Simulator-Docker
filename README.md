@@ -2,7 +2,7 @@
 
 This project contians a containerised and web-interface verison of: https://github.com/ukaea/Glovebox-Simulator
 
-Pre-built docker image: https://hub.docker.com/repository/docker/ukaea/glovebox-simulator
+Pre-built docker image: https://hub.docker.com/r/ukaea/glovebox-simulator
 
 
 ## Getting started
