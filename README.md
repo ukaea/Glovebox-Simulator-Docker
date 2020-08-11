@@ -53,8 +53,7 @@ Finally restart the container.
 
 * To interact with container with ROS directly run the container with local networking, ie:
 ```
-docker login git.ccfe.ac.uk:4567 #if you need to login to gitlab docker repo
-docker run -it --name sgs --network=host git.ccfe.ac.uk:4567/rain/glovebox/docker-simulator
+docker run -it --name sgs --network=host ukaea/glovebox-simulator
 ```
 
 
